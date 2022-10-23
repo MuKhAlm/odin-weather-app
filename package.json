@@ -2,7 +2,7 @@
   "name": "odin-weather-app",
   "version": "1.0.0",
   "description": "> An Odin project focussing on using `API`s and `asynchronous programming`.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
