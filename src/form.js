@@ -2,7 +2,7 @@ class Form {
   /**
    * Creates form,
    */
-  getForm = () => {
+  static getForm = () => {
     const div = document.createElement('div')
     div.id = 'form'
 
@@ -13,6 +13,9 @@ class Form {
     const buttonInput = document.createElement('input')
     buttonInput.type = 'button'
     buttonInput.value = 'Search'
+
+    div.append(textInput, buttonInput)
+    return div
   }
 }
 
