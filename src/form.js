@@ -13,6 +13,7 @@ class Form {
     const buttonInput = document.createElement('input')
     buttonInput.type = 'button'
     buttonInput.value = 'Search'
+    buttonInput.id = 'search-button'
 
     div.append(textInput, buttonInput)
     return div
