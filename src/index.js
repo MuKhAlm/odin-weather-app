@@ -26,10 +26,10 @@ async function getWeatherData (location) {
  *
  * @return {Object} processed weather data.
  */
-function processWeatherData (data) {
+function getProcessedWeatherData (data) {
   // Temperature properties are converted from Kelvin to Celcius
   const processedData = {
-    condition: data.weather.main,
+    condition: data.weather[0].main,
     temp: data.main.temp - 273.15,
     feelsLike: data.main.feels_like - 273.15,
     humidity: data.main.humidity
@@ -46,4 +46,15 @@ async function clgWeatherData (location) {
   const data = await getWeatherData(location)
   console.log(data)
 }
-clgWeatherData('baghdad')
+clgWeatherData('London')
+
+/**
+ * Console logs weather data object,
+ *
+ * @param {string} location   name of the desired location.
+ */
+async function clgProcessedWeatherData (location) {
+  const data = await getWeatherData(location)
+  console.log(getProcessedWeatherData(data))
+}
+clgProcessedWeatherData('London')
