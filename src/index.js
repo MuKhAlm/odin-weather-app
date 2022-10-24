@@ -20,6 +20,8 @@ async function getWeatherData (location) {
 /**
  * Process given weather data and returns an object containing the data required by the app,
  *
+ * The data to be returned contains the weather condition, temp (temprature), feelsLike(the Temp perceived by humans) and humidity (in percent),
+ *
  * @param {Object} data  weather data,
  *
  * @return {Object} processed weather data.
