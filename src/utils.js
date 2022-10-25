@@ -37,26 +37,4 @@ function getProcessedWeatherData (data) {
   return processedData
 }
 
-/**
- * Console logs weather data object,
- *
- * @param {string} location   name of the desired location.
- */
-async function clgWeatherData (location) {
-  const data = await getWeatherData(location)
-  console.log(data)
-}
-clgWeatherData('London')
-
-/**
- * Console logs weather data object,
- *
- * @param {string} location   name of the desired location.
- */
-async function clgProcessedWeatherData (location) {
-  const data = await getWeatherData(location)
-  console.log(getProcessedWeatherData(data))
-}
-clgProcessedWeatherData('London')
-
 export { getWeatherData, getProcessedWeatherData }
