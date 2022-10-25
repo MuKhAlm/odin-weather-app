@@ -1,4 +1,5 @@
 import Form from './form'
+import { getWeatherData, getProcessedWeatherData } from './utils'
 
 /**
  * The class responsible for rendering the page,
@@ -57,12 +58,24 @@ class Render {
 }
 
 /**
+ * The class responsible for controlling the state of the page
+ */
+class Controller {
+  constructor () {
+    // Add an onclick event to form button
+    const btn = document.getElementById('search-button')
+    btn.addEventListener('click', () => {
+      this.search()
+    })
+  }
+}
+
+/**
  * The function responsible for setting up the website
  */
 function main () {
   const render = new Render()
-  // Render() for rendering the page
-  // Controll() for controlling the form and taking actions when it is submitted
+  const controller = new Controller()
 }
 
 main()
