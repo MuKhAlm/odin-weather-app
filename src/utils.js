@@ -13,6 +13,10 @@ async function getWeatherData (location) {
       mode: 'cors'
     }
   )
+  if (response.status === 404) {
+    alert('Invalid location name')
+  }
+
   const data = await response.json()
   return data
 }
