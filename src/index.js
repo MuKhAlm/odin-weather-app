@@ -74,7 +74,7 @@ class Render {
 
     // Create details (paragraphs)
     const locationName = document.createElement('p')
-    locationName.textContent = location
+    locationName.textContent = location[0].toUpperCase() + location.slice(1)
     locationName.id = 'location'
 
     const condition = document.createElement('p')
@@ -82,15 +82,15 @@ class Render {
     condition.id = 'condition'
 
     const temp = document.createElement('p')
-    temp.textContent = data.temp
+    temp.textContent = data.temp.toFixed(1) + ' °C'
     temp.id = 'temp'
 
     const feelsLike = document.createElement('p')
-    feelsLike.textContent = data.feelsLike
+    feelsLike.textContent = data.feelsLike.toFixed(1) + ' °C'
     feelsLike.id = 'feals-like'
 
     const humidity = document.createElement('p')
-    humidity.textContent = data.humidity
+    humidity.textContent = data.humidity + ' %'
     humidity.id = 'humidity'
 
     // Add details to card
