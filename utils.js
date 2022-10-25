@@ -58,3 +58,5 @@ async function clgProcessedWeatherData (location) {
   console.log(getProcessedWeatherData(data))
 }
 clgProcessedWeatherData('London')
+
+export { getWeatherData, getProcessedWeatherData }
