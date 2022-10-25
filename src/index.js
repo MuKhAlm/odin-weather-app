@@ -1,5 +1,6 @@
 import Form from './form'
 import { getWeatherData, getProcessedWeatherData } from './utils'
+import './styles.css'
 
 /**
  * The class responsible for rendering the page,
