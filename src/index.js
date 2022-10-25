@@ -68,6 +68,21 @@ class Controller {
       this.search()
     })
   }
+
+  /**
+   * Gets weather data for searched location, and updates the weatherData class
+   */
+  search = async () => {
+    // Checks input validity
+    const location = document.getElementById('form').querySelector('input').value
+    if (!location) { return null }
+
+    // Fetch data
+    const data = await getWeatherData(location)
+    const processedData = getProcessedWeatherData(data)
+
+    // Update WD
+  }
 }
 
 /**
