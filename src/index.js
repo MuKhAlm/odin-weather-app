@@ -61,7 +61,14 @@ class Render {
  * The class responsible for controlling the state of the page
  */
 class Controller {
-  constructor () {
+  weatherData
+
+  /**
+   * @param {Object} wd Weather data instance
+   */
+  constructor (wd) {
+    this.weatherData = wd
+
     // Add an onclick event to form button
     const btn = document.getElementById('search-button')
     btn.addEventListener('click', () => {
@@ -82,6 +89,25 @@ class Controller {
     const processedData = getProcessedWeatherData(data)
 
     // Update WD
+    this.weatherData.updateData(processedData, location)
+  }
+}
+
+class WeatherData {
+  data
+  location
+
+  /**
+   * Updates the weather data and location, and triggers Render to render a weatherData card
+   *
+   * @param {Object} data     Processed weather data
+   * @param {String} location Location name
+   */
+  updateData = (data, location) => {
+    this.data = data
+    this.location = location
+
+    Render.displayWeatherData(data, location)
   }
 }
 
@@ -89,8 +115,9 @@ class Controller {
  * The function responsible for setting up the website
  */
 function main () {
+  const weatherData = new WeatherData()
   const render = new Render()
-  const controller = new Controller()
+  const controller = new Controller(weatherData)
 }
 
 main()
