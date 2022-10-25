@@ -55,6 +55,50 @@ class Render {
     this.footer.appendChild(a)
     document.querySelector('body').appendChild(this.footer)
   }
+
+  /**
+   * Displays given weather data as a card
+   *
+   * @param {Object} data     Processed weather data
+   * @param {String} location Location name
+   */
+  displayWeatherData = (data, location) => {
+    const prevCard = document.getElementById('card')
+    if (prevCard) {
+      this.main.removeChild(prevCard)
+    }
+
+    // Create weather-data card (div)
+    const card = document.createElement('div')
+    card.id = 'card'
+
+    // Create details (paragraphs)
+    const locationName = document.createElement('p')
+    locationName.textContent = location
+    locationName.id = 'location'
+
+    const condition = document.createElement('p')
+    condition.textContent = data.condition
+    condition.id = 'condition'
+
+    const temp = document.createElement('p')
+    temp.textContent = data.temp
+    temp.id = 'temp'
+
+    const feelsLike = document.createElement('p')
+    feelsLike.textContent = data.feelsLike
+    feelsLike.id = 'feals-like'
+
+    const humidity = document.createElement('p')
+    humidity.textContent = data.humidity
+    humidity.id = 'humidity'
+
+    // Add details to card
+    card.append(locationName, condition, temp, feelsLike, humidity)
+
+    // Add card to main
+    this.main.append(card)
+  }
 }
 
 /**
@@ -96,6 +140,11 @@ class Controller {
 class WeatherData {
   data
   location
+  render
+
+  constructor (render) {
+    this.render = render
+  }
 
   /**
    * Updates the weather data and location, and triggers Render to render a weatherData card
@@ -107,7 +156,7 @@ class WeatherData {
     this.data = data
     this.location = location
 
-    Render.displayWeatherData(data, location)
+    this.render.displayWeatherData(data, location)
   }
 }
 
@@ -115,8 +164,9 @@ class WeatherData {
  * The function responsible for setting up the website
  */
 function main () {
-  const weatherData = new WeatherData()
   const render = new Render()
+  const weatherData = new WeatherData(render)
+  // eslint-disable-next-line no-unused-vars
   const controller = new Controller(weatherData)
 }
 
