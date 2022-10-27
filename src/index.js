@@ -79,19 +79,19 @@ class Render {
     locationName.id = 'location'
 
     const condition = document.createElement('p')
-    condition.textContent = data.condition
+    condition.textContent = `Weather condition: ${data.condition}`
     condition.id = 'condition'
 
     const temp = document.createElement('p')
-    temp.textContent = data.temp.toFixed(1) + ' °C'
+    temp.textContent = `Temperature: ${data.temp.toFixed(1)}°C`
     temp.id = 'temp'
 
     const feelsLike = document.createElement('p')
-    feelsLike.textContent = data.feelsLike.toFixed(1) + ' °C'
+    feelsLike.textContent = `Feels like: ${data.feelsLike.toFixed(1)}°C`
     feelsLike.id = 'feals-like'
 
     const humidity = document.createElement('p')
-    humidity.textContent = data.humidity + ' %'
+    humidity.textContent = `Humidity: ${data.humidity}%`
     humidity.id = 'humidity'
 
     // Add details to card
