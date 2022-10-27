@@ -1,8 +1,44 @@
 :root {
     --main-font-color: antiquewhite;
     --main-bg-color: rgba(0, 0, 0, .7);
-    --main-header-font-size: 2rem;
     --main-font-size: 1.3rem;
+    --main-header-bg-color: antiquewhite;
+    --main-header-font-color: rgba(0, 0, 0, .7);
+    --main-header-font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    margin-bottom: 80px;
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+}
+
+header {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    color: var(--main-header-font-color);
+    background-color: var(--main-header-bg-color);
+}
+
+h1 {
+    font-size: var(--main-header-font-size);
 }
