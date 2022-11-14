@@ -9,7 +9,7 @@ const openWeatherKey = 'cb500be0c41e81f297b89263ec67329a'
  */
 async function getWeatherData (location) {
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${openWeatherKey}`, {
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${openWeatherKey}`, {
       mode: 'cors'
     }
   )
